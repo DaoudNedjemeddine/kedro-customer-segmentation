@@ -2,3 +2,33 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+data_initial:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data.csv
+  fs_args:
+    open_args_load:
+      encoding: 'latin_1'
+  load_args:
+    encoding: 'latin_1'
+
+data_dropna:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_dropna.csv
+
+data_drop_duplicates:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_drop_duplicates.csv
+
+data_nb_products_per_basket:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_nb_products_per_basket.csv
+
+entry_to_remove:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/entry_to_remove.csv
+
+doubtfull_entry:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/doubtfull_entry.csv
+  
