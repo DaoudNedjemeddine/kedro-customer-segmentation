@@ -26,10 +26,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """
-This is a boilerplate pipeline 'Data_Engineering'
+This is a boilerplate pipeline 'feature_engineering'
 generated using Kedro 0.17.5
 """
 
-from .pipeline import create_data_engineering_pipeline
+from .pipeline import create_preprocessing_pipeline
 
-__all__ = ["create_data_engineering_pipeline"]
+__all__ = ["create_preprocessing_pipeline"]

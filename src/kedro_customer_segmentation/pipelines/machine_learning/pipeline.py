@@ -27,30 +27,12 @@
 # limitations under the License.
 
 """
-This is a boilerplate pipeline 'feature_engineering'
+This is a boilerplate pipeline 'machine_learning'
 generated using Kedro 0.17.5
 """
 
 from kedro.pipeline import Pipeline, node
-from .nodes.create_data_nb_products_per_basket import create_data_nb_products_per_basket
-from .nodes.create_to_canceled import create_to_canceled
 
 
-def create_feature_engineering_pipeline(**kwargs):
-    return Pipeline([
-        node(
-         		func=create_data_nb_products_per_basket,
-         		inputs=["data_drop_duplicates"],
-                outputs= "data_nb_products_per_basket",
-         		name="create_data_nb_products_per_basket"
-            ),
-        node(
-         		func=create_to_canceled,
-         		inputs=["data_drop_duplicates"],
-                outputs= ["entry_to_remove","doubtfull_entry"],
-         		name="create_to_canceled"
-            )
-         	
-    ])
-
-
+def create_pipeline(**kwargs):
+    return Pipeline([])

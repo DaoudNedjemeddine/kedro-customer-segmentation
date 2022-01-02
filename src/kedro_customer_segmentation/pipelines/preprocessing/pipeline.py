@@ -27,28 +27,37 @@
 # limitations under the License.
 
 """
-This is a boilerplate pipeline 'Data_Engineering'
+This is a boilerplate pipeline 'feature_engineering'
 generated using Kedro 0.17.5
 """
 
 from kedro.pipeline import Pipeline, node
-from .nodes.drop_missing import drop_missing
-from .nodes.drop_duplicates import drop_duplicates
+from .nodes.create_data_nb_products_per_basket import create_data_nb_products_per_basket
+from .nodes.create_to_canceled import create_to_canceled
+from .nodes.drop_to_canceled import drop_to_canceled
 
-def create_data_engineering_pipeline(**kwargs):
-    return Pipeline(
-        [
-         	node(
-         		func=drop_missing,
-         		inputs=["data_initial"],
-                outputs= "data_dropna",
-         		name="drop_missing"
-         	),
-            node(
-         		func=drop_duplicates,
-         		inputs=["data_dropna"],
-                outputs= "data_drop_duplicates",
-         		name="drop_duplicates"
-         	)
-        ]
-    )
+
+def create_preprocessing_pipeline(**kwargs):
+    return Pipeline([
+        node(
+         		func=create_data_nb_products_per_basket,
+         		inputs=["data_drop_duplicates"],
+                outputs= "data_nb_products_per_basket",
+         		name="create_data_nb_products_per_basket"
+            ),
+        node(
+         		func=create_to_canceled,
+         		inputs=["data_drop_duplicates"],
+                outputs= ["entry_to_remove","doubtfull_entry"],
+         		name="create_to_canceled"
+            ),
+        node(
+         		func=drop_to_canceled,
+         		inputs=["data_drop_duplicates"],
+                outputs= "testt",
+         		name="drop_to_canceled"
+            )
+         	
+    ])
+
+
