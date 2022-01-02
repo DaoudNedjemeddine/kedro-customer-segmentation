@@ -37,8 +37,6 @@ from .pipelines.data_cleaning import pipeline as dc
 from .pipelines.preprocessing import pipeline as pr
 from kedro.pipeline.pipeline import Pipeline
 
-
-
 class ProjectHooks:
     @hook_impl
     def register_pipelines(self) -> Dict[str,Pipeline]:
