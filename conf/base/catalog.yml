@@ -24,6 +24,10 @@ data_nb_products_per_basket:
   type: pandas.CSVDataSet
   filepath: data/01_raw/data_nb_products_per_basket.csv
 
+data_quantity_canceled:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_quantity_canceled.csv
+
 entry_to_remove:
   type: pandas.CSVDataSet
   filepath: data/01_raw/entry_to_remove.csv
@@ -32,4 +36,39 @@ doubtfull_entry:
   type: pandas.CSVDataSet
   filepath: data/01_raw/doubtfull_entry.csv
 
+data_drop_canceled:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_drop_canceled.csv
+
+data_TotalPrice:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/data_TotalPrice.csv
+
+df_produits:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/df_produits.csv
+
+keywords:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/keywords.csv
+
+keywords_select:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/keywords_select.csv
+
+count_keywords:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/count_keywords.csv
+
+matrix:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/matrix.csv
+
+clusters_products:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/clusters_products.csv
+
+test:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/test.csv
   

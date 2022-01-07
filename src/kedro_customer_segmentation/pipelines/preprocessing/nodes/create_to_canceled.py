@@ -34,4 +34,4 @@ def create_to_canceled(df_initial: pd.DataFrame):
                 break  
     entry_to_remove = pd.DataFrame(entry_to_remove, columns=['index'])
     doubtfull_entry = pd.DataFrame(doubtfull_entry, columns=['index'])
-    return [entry_to_remove, doubtfull_entry]
+    return [df_cleaned,entry_to_remove, doubtfull_entry]

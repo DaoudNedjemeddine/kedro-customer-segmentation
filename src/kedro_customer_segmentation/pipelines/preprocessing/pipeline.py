@@ -35,6 +35,14 @@ from kedro.pipeline import Pipeline, node
 from .nodes.create_data_nb_products_per_basket import create_data_nb_products_per_basket
 from .nodes.create_to_canceled import create_to_canceled
 from .nodes.drop_to_canceled import drop_to_canceled
+from .nodes.add_column_TotalPrice import add_column_TotalPrice
+from .nodes.create_df_produits import create_df_produits
+from .nodes.keywords_inventory import keywords_inventory
+from .nodes.create_matrix import create_matrix
+from .nodes.creating_clusters_products import creating_clusters_products
+from .nodes.create_customer_categories import create_customer_categories
+
+
 
 
 def create_preprocessing_pipeline(**kwargs):
@@ -48,15 +56,52 @@ def create_preprocessing_pipeline(**kwargs):
         node(
          		func=create_to_canceled,
          		inputs=["data_drop_duplicates"],
-                outputs= ["entry_to_remove","doubtfull_entry"],
+                outputs= ["data_quantity_canceled","entry_to_remove","doubtfull_entry"],
          		name="create_to_canceled"
             ),
         node(
          		func=drop_to_canceled,
-         		inputs=["data_drop_duplicates"],
-                outputs= "testt",
+         		inputs=["data_quantity_canceled","entry_to_remove","doubtfull_entry"],
+                outputs= "data_drop_canceled",
          		name="drop_to_canceled"
+            ),
+        node(
+         		func=add_column_TotalPrice,
+         		inputs=["data_drop_canceled"],
+                outputs= "data_TotalPrice",
+         		name="add_column_TotalPrice"
+            ),
+        node(
+         		func=create_df_produits,
+         		inputs=["data_TotalPrice"],
+                outputs= "df_produits",
+         		name="create_df_produits"
+            ),
+        node(
+         		func=keywords_inventory,
+         		inputs=["df_produits"],
+                outputs= ["keywords", "keywords_select", "count_keywords"],
+         		name="keywords_inventory"
+            ),
+        node(
+         		func=create_matrix,
+         		inputs=["data_TotalPrice","count_keywords","keywords_select"],
+                outputs= "matrix",
+         		name="create_matrix"
+            ),
+        node(
+         		func=creating_clusters_products,
+         		inputs=["matrix"],
+                outputs= "clusters_products",
+         		name="creating_clusters_products"
+            ),
+        node(
+         		func=create_customer_categories,
+         		inputs=["data_TotalPrice","clusters_products"],
+                outputs= "selected_customers",
+         		name="create_customer_categories"
             )
+            
          	
     ])
 
