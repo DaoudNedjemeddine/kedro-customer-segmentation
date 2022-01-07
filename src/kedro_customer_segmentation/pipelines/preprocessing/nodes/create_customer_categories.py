@@ -58,7 +58,7 @@ def create_customer_categories(data: pd.DataFrame,clusters: pd.DataFrame):
     first_registration = pd.DataFrame(basket_price.groupby(by=['CustomerID'])['InvoiceDate'].min())
     last_purchase      = pd.DataFrame(basket_price.groupby(by=['CustomerID'])['InvoiceDate'].max())
 
-    test  = first_registration.applymap(lambda x:(last_date - x.date()).days)
+    test  = first_registration.applymap(lambda xk:(last_date - x.date()).days)
     test2 = last_purchase.applymap(lambda x:(last_date - x.date()).days)
 
     transactions_per_user.loc[:, 'LastPurchase'] = test2.reset_index(drop = False)['InvoiceDate']
