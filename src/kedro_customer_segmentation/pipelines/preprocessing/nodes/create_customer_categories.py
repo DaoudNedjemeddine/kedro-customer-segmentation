@@ -80,5 +80,5 @@ def create_customer_categories(data: pd.DataFrame,clusters: pd.DataFrame):
     silhouette_avg = silhouette_score(scaled_matrix, clusters_clients)
     print('score de silhouette: {:<.3f}'.format(silhouette_avg))
     selected_customers.loc[:, 'cluster'] = clusters_clients
-    return selected_customers
+    return [selected_customers,transactions_per_user]
 

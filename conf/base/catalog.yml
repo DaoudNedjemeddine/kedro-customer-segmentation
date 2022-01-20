@@ -72,5 +72,9 @@ Y_test:
   type: pandas.CSVDataSet
   filepath: data/01_raw/Y_test.csv
 
+transactions_per_user:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/transactions_per_user.csv
+
 
   

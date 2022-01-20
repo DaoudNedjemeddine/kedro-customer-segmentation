@@ -68,7 +68,7 @@ def create_preprocessing_pipeline(**kwargs):
         node(
          		func=create_customer_categories,
          		inputs=["data_TotalPrice","clusters_products"],
-                outputs= "selected_customers",
+                outputs= ["selected_customers","transactions_per_user"]
          		name="create_customer_categories"
             )
             
