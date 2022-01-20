@@ -30,6 +30,6 @@ This is a boilerplate pipeline 'machine_learning'
 generated using Kedro 0.17.5
 """
 
-from .pipeline import create_pipeline
+from .pipeline import create_Machine_Learning_pipeline
 
-__all__ = ["create_pipeline"]
+__all__ = ["create_Machine_Learning_pipeline"]

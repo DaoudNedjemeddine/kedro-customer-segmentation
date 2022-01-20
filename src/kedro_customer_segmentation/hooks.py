@@ -35,6 +35,7 @@ from kedro.io import DataCatalog
 from kedro.versioning import Journal
 from .pipelines.data_cleaning import pipeline as dc
 from .pipelines.preprocessing import pipeline as pr
+from .pipelines.machine_learning import pipeline as ml
 from kedro.pipeline.pipeline import Pipeline
 
 class ProjectHooks:
@@ -42,11 +43,13 @@ class ProjectHooks:
     def register_pipelines(self) -> Dict[str,Pipeline]:
         data_cleaning = dc.create_data_cleaning_pipeline()
         preprocessing = pr.create_preprocessing_pipeline()
+        machine_learning = ml.create_Machine_Learning_pipeline()
 
         return {
-            "__default__": data_cleaning + preprocessing,
+            "__default__": data_cleaning + preprocessing + machine_learning,
             "dc" : data_cleaning,
             "pr" : preprocessing, 
+            "ml" : machine_learning, 
         }
     
     @hook_impl

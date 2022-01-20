@@ -1,4 +1,4 @@
-from nodes.Class_fit import Class_Fit
+from .Class_fit import Class_Fit
 import numpy as np
 from sklearn import  svm
 # Support Vector Machine Classifier (SVC)

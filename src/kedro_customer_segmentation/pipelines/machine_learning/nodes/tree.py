@@ -1,4 +1,4 @@
-from nodes.Class_fit import Class_Fit
+from .Class_fit import Class_Fit
 import numpy as np
 
 def tree(X_train,Y_train,X_test,Y_test):

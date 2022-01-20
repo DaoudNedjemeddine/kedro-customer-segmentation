@@ -34,12 +34,7 @@ generated using Kedro 0.17.5
 from kedro.pipeline import Pipeline, node
 from .nodes.drop_missing import drop_missing
 from .nodes.drop_duplicates import drop_duplicates
-<<<<<<< HEAD
 from .nodes.drop_canceled import drop_canceled
-=======
-#from .nodes.test import test
->>>>>>> d082aa32022a7c77df83ac87a04e82439c701daa
-
 def create_data_cleaning_pipeline(**kwargs):
     return Pipeline(
         [

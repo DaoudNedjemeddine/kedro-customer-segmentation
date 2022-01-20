@@ -56,5 +56,21 @@ selected_customers:
   type: pandas.CSVDataSet
   filepath: data/01_raw/selected_customers.csv
 
+X_train:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/X_train.csv
+
+Y_train:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/Y_train.csv
+
+X_test:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/X_test.csv
+
+Y_test:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/Y_test.csv
+
 
   
