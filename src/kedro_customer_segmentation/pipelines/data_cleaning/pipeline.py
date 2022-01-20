@@ -34,6 +34,7 @@ generated using Kedro 0.17.5
 from kedro.pipeline import Pipeline, node
 from .nodes.drop_missing import drop_missing
 from .nodes.drop_duplicates import drop_duplicates
+from .nodes.drop_canceled import drop_canceled
 
 def create_data_cleaning_pipeline(**kwargs):
     return Pipeline(
@@ -49,6 +50,12 @@ def create_data_cleaning_pipeline(**kwargs):
          		inputs=["data_dropna"],
                 outputs= "data_drop_duplicates",
          		name="drop_duplicates"
+         	),
+            node(
+         		func=drop_canceled,
+         		inputs=["data_dropna"],
+                outputs= "df_cleaned",
+         		name="drop_canceled"
          	)
         ]
     )

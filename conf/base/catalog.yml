@@ -20,25 +20,9 @@ data_drop_duplicates:
   type: pandas.CSVDataSet
   filepath: data/01_raw/data_drop_duplicates.csv
 
-data_nb_products_per_basket:
+df_cleaned:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/data_nb_products_per_basket.csv
-
-data_quantity_canceled:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/data_quantity_canceled.csv
-
-entry_to_remove:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/entry_to_remove.csv
-
-doubtfull_entry:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/doubtfull_entry.csv
-
-data_drop_canceled:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/data_drop_canceled.csv
+  filepath: data/01_raw/df_cleaned.csv
 
 data_TotalPrice:
   type: pandas.CSVDataSet
@@ -68,7 +52,9 @@ clusters_products:
   type: pandas.CSVDataSet
   filepath: data/01_raw/clusters_products.csv
 
-test:
+selected_customers:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/test.csv
+  filepath: data/01_raw/selected_customers.csv
+
+
   

@@ -2,6 +2,7 @@ import pandas as pd
 import nltk
 
 def keywords_inventory(data: pd.DataFrame):
+    data = pd.DataFrame(data['Description'].unique()).rename(columns = {0:'Description'})
     is_noun = lambda pos: pos[:2] == 'NN'
     colonne = 'Description'
     stemmer = nltk.stem.SnowballStemmer("english")
