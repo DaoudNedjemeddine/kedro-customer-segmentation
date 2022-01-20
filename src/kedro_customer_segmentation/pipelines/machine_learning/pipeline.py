@@ -30,9 +30,42 @@
 This is a boilerplate pipeline 'machine_learning'
 generated using Kedro 0.17.5
 """
+from kedro_customer_segmentation.pipelines import Pipeline, node
+from .nodes.SVC import svc
+from .nodes.Logistic_Regression import lr
+from .nodes.tree import tree
+from .nodes.data_split import data_split
 
-from kedro.pipeline import Pipeline, node
+def create_Machine_Learning_pipeline(**kwargs):
+    return Pipeline(
+        [
+			 node(
+				func=svc,
+         		inputs=["X_train","Y_train","X_test","Y_test"],
+                outputs= "svc_results",
+         		name="svc"
+			 ),
+             node(
+                func=lr,
+                inputs=["X_train","Y_train","X_test","Y_test"],
+                outputs= "lr_results",
+         		name="lr"
+             ),
+             node(
+                func=tree,
+                inputs=["X_train","Y_train","X_test","Y_test"],
+                outputs= "lr_results",
+         		name="lr"
+             ),
+             node(
+                
+                func=data_split,
+                inputs=["selected_customers"],
+                outputs=["X_train", "X_test", "Y_train", "Y_test"],
+         		name="lr"
 
 
-def create_pipeline(**kwargs):
-    return Pipeline([])
+             )
+			 
+        ]
+    )
